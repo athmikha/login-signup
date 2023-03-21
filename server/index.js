@@ -109,7 +109,29 @@ app.post("/login", function(req, res){
   )
 }
 )
+app.post("/update", function(req, res){
+
+  var sql="insert into user (Gender,Age,Dob) values (?)";
+  console.log('add')
+  console.log(sql)
+  var values =[req.body.Gender,req.body.Age,req.body.Dob]
+
+
+    db.query(sql, [values]);
+    console.log('inserted')
+
+    //var sql1="select * from user;"
+    //db.query(sql1 ,(err, data) => {
+     // console.log('data')
+      res.json("data");
+      
+         //}     );
+   
+  
+
     
+  
+  })  ;
   
 
   app.listen(8000, ()=>{
